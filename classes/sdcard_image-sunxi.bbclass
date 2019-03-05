@@ -78,7 +78,7 @@ IMAGE_CMD_sunxi-sdimg () {
 				fi
 
 				kernel_bin="`readlink ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin`"
-				kernel_bin_for_dtb="`readlink ${DEPLOY_DIR_IMAGE}/${DTS_BASE_NAME}.dtb | sed "s,$DTS_BASE_NAME,${KERNEL_IMAGETYPE},g;s,\.dtb$,.bin,g"`"
+				kernel_bin_for_dtb="`readlink ${DEPLOY_DIR_IMAGE}/${DTS_BASE_NAME}.dtb | sed "s,$DTS_BASE_NAME,${MACHINE},g;s,\.dtb$,.bin,g"`"
 				if [ $kernel_bin = $kernel_bin_for_dtb ]; then
 					mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${DTS_BASE_NAME}.dtb ::/${DTS_FILE}
 				fi
